@@ -1,0 +1,84 @@
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://www.shutterstock.com/shutterstock/photos/709731865/display_1500/stock-vector-seamless-pattern-of-game-tic-tac-toe-drawing-of-white-contour-on-black-background-vector-709731865.jpg'); /* Add your image URL */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: white;
+}
+
+/* Game Container */
+.game-container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 300px;
+}
+
+/* Title */
+h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Game Board */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    margin-bottom: 20px;
+}
+
+/* Cells */
+.cell {
+    width: 80px;
+    height: 80px;
+    background-color: #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #333;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cell:hover {
+    background-color: #ddd;
+}
+
+/* Game Info */
+.game-info {
+    font-size: 1.2rem;
+    color: #444;
+}
+
+#status {
+    font-weight: bold;
+}
+
+/* Reset Button */
+#reset-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+
+#reset-btn:hover {
+    background-color: #0056b3;
+}

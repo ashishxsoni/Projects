@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Multiple background layers for better effect */
+    background-image: 
+        linear-gradient(45deg, rgba(44, 62, 80, 0.4), rgba(52, 152, 219, 0.4)),
+        url('https://i.pinimg.com/736x/7c/c8/12/7cc812145e44fe97b9513cde8306f194.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.calculator {
+    position: relative;
+    padding: 20px;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px); /* For Safari */
+    border-radius: 15px;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.display {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.display input {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    outline: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: right;
+    font-size: 2em;
+    color: #fff;
+}
+
+.calculator .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.calculator .buttons button {
+    padding: 15px;
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.calculator .buttons button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.calculator .buttons .operator {
+    background: rgba(255, 166, 0, 0.5);
+}
+
+.calculator .buttons .operator:hover {
+    background: rgba(255, 166, 0, 0.7);
+}
+
+.calculator .buttons .equals {
+    grid-column: span 2;
+    background: rgba(52, 152, 219, 0.5);
+}
+
+.calculator .buttons .equals:hover {
+    background: rgba(52, 152, 219, 0.7);
+}
+
+.calculator .buttons .clear {
+    background: rgba(231, 76, 60, 0.5);
+}
+
+.calculator .buttons .clear:hover {
+    background: rgba(231, 76, 60, 0.7);
+}
+
+/* Added subtle glow effect on calculator */
+.calculator::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #e74c3c, #3498db);
+    z-index: -1;
+    border-radius: 17px;
+    filter: blur(20px);
+    opacity: 0.5;
+}
+
+@media (max-width: 320px) {
+    .calculator {
+        width: 280px;
+    }
+
+    .calculator .buttons button {
+        padding: 10px;
+    }
+}

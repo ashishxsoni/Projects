@@ -1,0 +1,81 @@
+/* General styles for the body and background image */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    background: url('https://source.unsplash.com/1920x1080/?technology') no-repeat center center/cover;
+    color: #ffffff;
+  }
+  
+  /* Style for the navigation bar */
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  nav a {
+    color: #00d1b2;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #ffffff;
+  }
+  
+  /* Styles for the project section */
+  .project {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    padding-top: 60px; /* To avoid overlapping with the fixed nav */
+  }
+  
+  /* Styles for the "key" prompt */
+  .key {
+    font-size: 24px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  /* Table styling */
+  table {
+    width: 60%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 18px;
+  }
+  
+  table th, table td {
+    padding: 15px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  table th {
+    background-color: #00d1b2;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
