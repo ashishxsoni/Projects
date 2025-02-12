@@ -1,6 +1,6 @@
 const submit = document.querySelector("#search_btn");
 const box = document.querySelector("#weather-info");
-const API_KEY = "5cf3170d5bc4b69b704e8284a83a7748"; // Replace with your OpenWeatherMap API key
+const API_KEY = ""; // Replace with your OpenWeatherMap API key
 
 submit.addEventListener("click", () => {
   const city = document.querySelector("#city-input").value.trim(); // Get city value on button click
