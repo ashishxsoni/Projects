@@ -1,0 +1,265 @@
+/* Custom properties for color scheme */
+:root {
+  --primary-color: #4e54c8;
+  --secondary-color: #8f94fb;
+  --text-primary: #2c3e50;
+  --text-secondary: #666;
+  --background: #f0f2f5;
+  --form-bg: #ffffff;
+  --input-bg: #f8fafc;
+  --input-border: #e2e8f0;
+  --table-header: var(--primary-color);
+  --table-hover: #f8fafc;
+}
+
+/* Animated Background */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  position: relative;
+  overflow-x: hidden;
+  color: var(--text-primary);
+}
+
+/* Animated circles in background */
+body::before,
+body::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: float 6s infinite;
+  z-index: 0;
+}
+
+body::before {
+  top: -150px;
+  left: -150px;
+}
+
+body::after {
+  bottom: -150px;
+  right: -150px;
+  animation-delay: -3s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(40px, 40px); }
+}
+
+/* Heading Styles */
+h1, h2 {
+  color: var(--text-primary);
+  text-align: center;
+  margin: 2rem 0;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h1::after, h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 3px;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+}
+
+form label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+form input {
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  border: 2px solid var(--input-border);
+  border-radius: 10px;
+  background: var(--input-bg);
+  transition: all 0.3s ease;
+  width: 300px;
+}
+
+form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(78, 84, 200, 0.1);
+}
+
+form button {
+  padding: 0.8rem 1.5rem;
+  font-size: 0.95rem;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+form button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: 0.5s;
+}
+
+form button:hover::before {
+  left: 100%;
+}
+
+form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(78, 84, 200, 0.3);
+}
+
+/* Table Styling */
+table {
+  width: 80%;
+  margin: 2rem auto;
+  border-collapse: collapse;
+  background: var(--form-bg);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+table th, table td {
+  padding: 1rem 1.2rem;
+  text-align: center;
+}
+
+table th {
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+table tr {
+  transition: all 0.3s ease;
+}
+
+table tr:nth-child(even) {
+  background-color: rgba(78, 84, 200, 0.05);
+}
+
+table tr:hover {
+  background-color: rgba(78, 84, 200, 0.1);
+  transform: scale(1.01);
+}
+
+/* Link Styling */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  table {
+    width: 95%;
+    margin: 1rem auto;
+  }
+  
+  form {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  form input {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  form button {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  table th, table td {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Animation for new rows */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+tr {
+  animation: fadeIn 0.5s ease forwards;
+}

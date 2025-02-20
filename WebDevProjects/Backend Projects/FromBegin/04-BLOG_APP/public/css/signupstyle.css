@@ -1,0 +1,262 @@
+/* Custom properties for color scheme */
+:root {
+  --primary-color: #4e54c8;
+  --secondary-color: #8f94fb;
+  --text-primary: #2c3e50;
+  --text-secondary: #666;
+  --background: #f0f2f5;
+  --form-bg: #ffffff;
+  --input-bg: #f8fafc;
+  --input-border: #e2e8f0;
+  --success: #4CAF50;
+  --error: #f44336;
+}
+
+/* Animated Background */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated circles in background */
+body::before,
+body::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: float 6s infinite;
+}
+
+body::before {
+  top: -150px;
+  left: -150px;
+}
+
+body::after {
+  bottom: -150px;
+  right: -150px;
+  animation-delay: -3s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(40px, 40px); }
+}
+
+/* Form Container Styling */
+.container, .form-container {
+  background: var(--form-bg);
+  padding: 1.0rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 350px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* Gradient border effect */
+.container::before, .form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+
+.container:hover::before, .form-container:hover::before {
+  transform: scaleX(1);
+}
+
+/* Heading Styles */
+h1 {
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+  position: relative;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 3px;
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+/* Label Animation */
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+/* Input Styling */
+.form-group input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--input-border);
+  border-radius: 10px;
+  background: var(--input-bg);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-group input::placeholder {
+  color: #b0b0b0;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(78, 84, 200, 0.1);
+}
+
+/* Button Styling */
+.btn, button[type="submit"] {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before, button[type="submit"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.btn:hover::before, button[type="submit"]:hover::before {
+  left: 100%;
+}
+
+.btn:hover, button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(78, 84, 200, 0.3);
+}
+
+/* Link Styling */
+p {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+p a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+p a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+/* Error state */
+.form-group input:invalid:focus {
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1);
+}
+
+/* Success state */
+.form-group.success input {
+  border-color: var(--success);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 480px) {
+  .container, .form-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .form-group input {
+    font-size: 0.9rem;
+  }
+
+  .btn, button[type="submit"] {
+    padding: 0.8rem;
+  }
+}
+
+/* Loading Animation for Button */
+.btn.loading, button[type="submit"].loading {
+  position: relative;
+  color: transparent;
+}
+
+.btn.loading::after, button[type="submit"].loading::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -10px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

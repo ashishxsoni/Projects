@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Short URL List</title>
+  <link rel="stylesheet" href="css/style.css"> 
+  <!-- The static path ensures we don't need "../public" -->
+  <link rel="icon" href="https://i.pinimg.com/736x/fe/92/35/fe9235dccffe990f556b93c3761ca8b4.jpg" type="image/x-icon">
+</head>
+<body>
+  <h1>URL SHORTENER</h1>
+
+  <!-- Form for adding a new URL -->
+  <form action="/url" method="POST">
+    <label for="originalURL">Enter your Original URL:</label>
+    <input type="text" id="originalURL" name="redirectURL" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <% if (locals.shortId != null) { %>
+    <p>URL generated successfully! Short URL: 
+      <a href="/url/<%= locals.shortId %>" target="_blank">
+        <%= locals.shortId %>
+      </a>
+    </p>
+  <% } %>
+
+  <% if (locals.urls && locals.urls.length > 0) { %>
+    <h2>URL List</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>S.No.</th>
+          <th>Short ID</th>
+          <th>Original URL</th>
+          <th>Total Clicks</th>
+          <th>Analytics</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% urls.forEach((url,index) => { %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= url.shortID %></td>
+            <td><a href="/url/<%= url.shortID %>" target="_blank"><%= url.redirectURL %></a></td>
+            <td><%= url.visitHistory.length %></td>
+            <td>
+              <a href="/url/analytics/<%= url.shortID %>">View Analytics</a>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } %>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <%- include('./partials/head', { titlename: titleField }) %>
+
+  </head>
+  <body>
+    <%- include('./partials/nav') %>
+   
+          
+    <div class="container mt-3">
+      <% if (blogs && blogs.length > 0) { %>
+        <div class="row row-cols-4">
+          <% blogs.forEach(blog => { %>
+            <div class="col m-2">
+              <div class="card col mb-4" style="width: 18rem">
+                <img
+                  src="<%= blog.coverImageURL || '/images/placeholder.png' %>"
+                  class="card-img-top"
+                  alt="<%= blog.title %>"
+                />
+                <div class="card-body">
+                  <h5 class="card-title"><%= blog.title %></h5>
+                  <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      <% } else { %>
+        <p class="text-center">No blogs available at the moment. Check back later!</p>
+      <% } %>
+    </div>
+  </body>
+</html>
